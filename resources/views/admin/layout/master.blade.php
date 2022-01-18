@@ -10,7 +10,12 @@
     <link rel="stylesheet"
           href="https://demos.creative-tim.com/argon-dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="https://demos.creative-tim.com/argon-dashboard/assets/css/argon.min.css?v=1.2.0">
-
+    @yield('style')
+    <style>
+        .table td{
+            vertical-align: middle;
+        }
+    </style>
 </head>
 
 <body>
@@ -32,12 +37,12 @@
                                 Dashboard
                             </li>
                         </a>
-                        <a>
+                        <a href="{{route('admin.category.index')}}">
                             <li class="list-group-item">
                                 Category
                             </li>
                         </a>
-                        <a>
+                        <a href="{{route('admin.product.index')}}">
                             <li class="list-group-item">
                                 Product
                             </li>
