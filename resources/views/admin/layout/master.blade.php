@@ -47,9 +47,19 @@
                                 Product
                             </li>
                         </a>
-                        <a>
+                        <a href="{{route('admin.order.pending')}}">
                             <li class="list-group-item">
-                                Order
+                                Pending Order
+                            </li>
+                        </a>
+                        <a href="{{route('admin.order.complete')}}">
+                            <li class="list-group-item">
+                                Complete Order
+                            </li>
+                        </a>
+                        <a href="{{route('admin.user.list')}}">
+                            <li class="list-group-item">
+                                User List
                             </li>
                         </a>
                     </ul>
