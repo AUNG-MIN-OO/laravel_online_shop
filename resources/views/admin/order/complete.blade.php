@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 @section('content')
     <div class="card">
-        <div class="card-header text-center font-weight-bold text-uppercase">Pending Order</div>
+        <div class="card-header text-center font-weight-bold text-uppercase">Complete Order</div>
         <div class="card-body">
             <div class="">
                 <form action="{{route('admin.order.complete')}}" method="get">

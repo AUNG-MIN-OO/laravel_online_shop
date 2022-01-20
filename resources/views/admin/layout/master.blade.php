@@ -32,8 +32,8 @@
                                 Admin Management
                             </li>
                         </a>
-                        <a>
-                            <li class="list-group-item text-white {{\Illuminate\Support\Facades\Request::url()=='/admin/' ? 'bg-primary':''}}">
+                        <a href="{{route('admin.dashboard')}}">
+                            <li class="list-group-item">
                                 Dashboard
                             </li>
                         </a>
@@ -60,6 +60,11 @@
                         <a href="{{route('admin.user.list')}}">
                             <li class="list-group-item">
                                 User List
+                            </li>
+                        </a>
+                        <a href="{{route('admin.logout')}}">
+                            <li class="list-group-item bg-danger text-white">
+                                Logout
                             </li>
                         </a>
                     </ul>
