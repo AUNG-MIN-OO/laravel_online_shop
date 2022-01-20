@@ -12,7 +12,7 @@
                         </div>
                         <div class="col-6">
                             <h2 class="text-uppercase text-center mb-3">User Login</h2>
-                            <form action="{{url('admin/login')}}" method="post">
+                            <form action="{{url('/login')}}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <input type="email" name="email" id="email" class="form-control text-center" placeholder="email">

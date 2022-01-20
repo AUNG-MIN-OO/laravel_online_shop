@@ -9,7 +9,9 @@ Route::post('/register','User\AuthController@postRegister');
 ##login
 Route::get('/login','User\AuthController@showLogin')->name('user.login');
 Route::post('/login','User\AuthController@postLogin');
-Route::get('/', 'PageController@index');
+Route::get('/logout','User\AuthController@logout');
+
+Route::get('/', 'PageController@index')->name('user.home');
 Route::get('/product/detail','PageController@productDetail');
 
 

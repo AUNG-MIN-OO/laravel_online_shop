@@ -40,10 +40,13 @@
                         User
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @if(!\Illuminate\Support\Facades\Auth::check())
                         <a class="dropdown-item" href="{{url('/login')}}">Login</a>
                         <a class="dropdown-item" href="{{url('/register')}}">Register</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Welcome Guy!</a>
+                        @else
+                        <a class="dropdown-item" href="#">Welcome {{\Illuminate\Support\Facades\Auth::user()->name}}!</a>
+                        <a class="dropdown-item" href="{{url('/logout')}}">Logout</a>
+                        @endif
                     </div>
                 </li>
                 <li class="nav-item">
@@ -71,8 +74,10 @@
                     recusandae quasi tempore placeat aliquam autem, a soluta nisi totam
                     temporibus dolorem!
                 </p>
+                @if(!\Illuminate\Support\Facades\Auth::check())
                 <a href="{{url('/register')}}" class="btn btn-outline-primary">SignUp</a>
                 <a href="{{url('/login')}}" class="btn btn-primary">Login</a>
+                @endif
             </div>
             <div class="col-md-6 text-center">
                 <img class=""
@@ -87,6 +92,7 @@
     <div class="row">
         <!-- For Category and Information -->
         <div class="col-md-4">
+            @if(\Illuminate\Support\Facades\Auth::check())
             <div class="card">
                 <div class="card-body">
                     <ul class="list-group">
@@ -99,6 +105,7 @@
                     </ul>
                 </div>
             </div>
+            @endif
             <div class="card">
                 <div class="card-body">
                     <ul class="list-group">

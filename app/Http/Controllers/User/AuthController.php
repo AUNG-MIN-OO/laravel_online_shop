@@ -47,6 +47,18 @@ class AuthController extends Controller
     }
 
     public function postLogin(Request $request){
+        ##check email exists
+        if (User::where('email',$request->email)->first()){
+            ##attempt login
+            if (Auth::attempt($request->only('email','password'))){
+                Alert::toast('Welcome '.Auth::user()->name,'success');
+                return redirect()->route('user.home');
+            }
+        }else{
+            Alert::toast('Something wrong!','error');
+            return redirect()->back();
+        }
+
         if (Auth::attempt($request->only('email','password'))){
             Alert::toast('Welcome '.Auth::user()->name,'success');
             return redirect()->route('admin.dashboard');
@@ -55,6 +67,6 @@ class AuthController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('admin.login');
+        return redirect()->route('user.login');
     }
 }
