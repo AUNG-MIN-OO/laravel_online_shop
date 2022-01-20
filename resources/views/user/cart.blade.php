@@ -11,6 +11,7 @@
         </tr>
         </thead>
         <tbody>
+        @php $totalPrice = 0; @endphp
         @foreach($cart as $c)
             <tr>
                 <td>
@@ -21,18 +22,20 @@
                 <td>{{$c->product->name}}</td>
                 <td>{{$c->quantity}}</td>
                 <td>
-                    <?php $totalPrice=0; ?>
-                    {{$price = $c->product->price * $c->quantity}}
-                    <?php $totalPrice += $price; ?>
+                    {{$c->product->price * $c->quantity}}
                 </td>
             </tr>
+            @php $totalPrice += $c->product->price * $c->quantity; @endphp
         @endforeach
+        <tr>
+            <td><span class="font-weight-bold text-primary">Total Price</span></td>
+            <td></td>
+            <td></td>
+            <td>
+                <p class=" font-weight-bolder">{{$totalPrice}} MMK</p>
+            </td>
+        </tr>
         <hr>
         </tbody>
     </table>
-    <hr>
-    <div class="d-flex justify-content-between align-items-center">
-        <p class=" font-weight-bolder">Total Price</p>
-        <p class=" font-weight-bolder"> MMK</p>
-    </div>
 @endsection

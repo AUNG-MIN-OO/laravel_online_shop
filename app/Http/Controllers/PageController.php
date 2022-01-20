@@ -49,6 +49,7 @@ class PageController extends Controller
 
     public function showCart(){
         $cart = ProductCart::where('user_id',Auth::id())->with('product')->get();
+
         return view('user.cart',compact('cart'));
     }
 }
