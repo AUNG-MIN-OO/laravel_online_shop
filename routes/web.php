@@ -2,9 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 
+#user auth
+##register
+Route::get('/register','User\AuthController@showRegister');
+Route::post('/register','User\AuthController@postRegister');
+##login
+Route::get('/login','User\AuthController@showLogin')->name('user.login');
+Route::post('/login','User\AuthController@postLogin');
 Route::get('/', 'PageController@index');
 Route::get('/product/detail','PageController@productDetail');
 
+
+##admin auth
 Route::get('/admin/login','Admin\AuthController@showLogin');
 Route::post('/admin/login','Admin\AuthController@postLogin')->name('admin.login');
 Route::group(['prefix' => 'admin','namespace' => 'Admin','as'=>'admin.','middleware'=>'Admin'],function (){
