@@ -3,16 +3,22 @@
 use Illuminate\Support\Facades\Route;
 
 #user auth
-##register
-Route::get('/register','User\AuthController@showRegister');
-Route::post('/register','User\AuthController@postRegister');
-##login
-Route::get('/login','User\AuthController@showLogin')->name('user.login');
-Route::post('/login','User\AuthController@postLogin');
-Route::get('/logout','User\AuthController@logout');
+Route::group(['middleware'=>'ShareData'],function (){
+    ##register
+    Route::get('/register','User\AuthController@showRegister');
+    Route::post('/register','User\AuthController@postRegister');
+    ##login
+    Route::get('/login','User\AuthController@showLogin')->name('user.login');
+    Route::post('/login','User\AuthController@postLogin');
+    Route::get('/logout','User\AuthController@logout');
 
-Route::get('/', 'PageController@index')->name('user.home');
-Route::get('/product/detail','PageController@productDetail');
+    Route::get('/', 'PageController@index')->name('user.home');
+    Route::get('/product/{slug}','PageController@productDetail');
+    ##cart
+    Route::get('/product/cart/add/{slug}','PageController@addToCart');
+    Route::get('/cart','PageController@showCart');
+});
+
 
 
 ##admin auth

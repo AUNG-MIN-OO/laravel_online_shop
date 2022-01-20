@@ -50,10 +50,10 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1"
+                    <a class="nav-link" href="{{url('/cart')}}" tabindex="-1"
                        aria-disabled="true">
                         Cart
-                        <small class="badge badge-danger">7</small>
+                        <small class="badge badge-danger">{{$cart_count}}</small>
                     </a>
                 </li>
             </ul>
@@ -96,6 +96,11 @@
             <div class="card">
                 <div class="card-body">
                     <ul class="list-group">
+                        <a href="{{url('/cart')}}">
+                            <li class="list-group-item bg-primary text-white">
+                                Your Cart
+                            </li>
+                        </a>
                         <li class="list-group-item bg-dark text-white">
                             Your Order List
                         </li>
@@ -113,22 +118,12 @@
                             All Category
 
                         </li>
+                        @foreach($categories as $c)
                         <li class="list-group-item">
-                            Man Shirts
-                            <span class="badge badge-primary float-right">4</span>
+                            {{$c->name}}
+                            <span class="badge badge-primary float-right">{{$c->product_count}}</span>
                         </li>
-                        <li class="list-group-item">
-                            Man Shirts
-                            <span class="badge badge-primary float-right">4</span>
-                        </li>
-                        <li class="list-group-item">
-                            Man Shirts
-                            <span class="badge badge-primary float-right">4</span>
-                        </li>
-                        <li class="list-group-item">
-                            Man Shirts
-                            <span class="badge badge-primary float-right">4</span>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

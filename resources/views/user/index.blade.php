@@ -2,27 +2,34 @@
 @section('content')
     <div class="row">
         <!-- Loop Product -->
+        @foreach($products as $p)
         <div class="col-md-4">
-            <a href="detail.html">
+            <a href="{{url('/product/'.$p->slug)}}">
                 <div class="card">
                     <img class="card-img-top"
-                         src="https://images-na.ssl-images-amazon.com/images/G/01/amazonglobal/images/email/asins/DURM-275C68D005273E1H._CB534580833_.jpg"
+                         src="{{$p->image}}"
                          alt="">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Best Product
+                                <h4>
+                                    {{$p->name}}
                                 </h4>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="d-flex justify-content-between align-items-center col-12">
                                 <a href=""
-                                   class="badge badge-primary">100ks</a>
+                                   class="badge badge-primary">{{$p->price}}ks</a>
+                                <a href=""
+                                   class="badge badge-warning">{{$p->category->name}}</a>
                             </div>
-                            <div class="col-md-4">
-                                <a href=""
-                                   class="badge badge-warning">Shirt</a>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <a href="{{url('product/cart/add/'.$p->slug)}}" class="btn btn-primary rounded btn-block">
+                                    Add to cart <i class="fas fa-cart-arrow-down"></i>
+                                </a>
                             </div>
                         </div>
 
@@ -32,156 +39,7 @@
             </a>
 
         </div>
-        <div class="col-md-4">
-            <a href="">
-                <div class="card">
-                    <img class="card-img-top"
-                         src="https://images-na.ssl-images-amazon.com/images/G/01/amazonglobal/images/email/asins/Baby_Boys._CB519764507_.jpg"
-                         alt="">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4>Best Product
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href=""
-                                   class="badge badge-primary">100ks</a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href=""
-                                   class="badge badge-warning">Shirt</a>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </a>
-
-        </div>
-        <div class="col-md-4">
-            <a href="">
-                <div class="card">
-                    <img class="card-img-top"
-                         src="https://images-na.ssl-images-amazon.com/images/G/01/amazonglobal/images/email/asins/Baby_girls._CB519764507_.jpg"
-                         alt="">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4>Best Product
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href=""
-                                   class="badge badge-primary">100ks</a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href=""
-                                   class="badge badge-warning">Shirt</a>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </a>
-
-        </div>
-        <div class="col-md-4">
-            <a href="">
-                <div class="card">
-                    <img class="card-img-top"
-                         src="https://images-na.ssl-images-amazon.com/images/G/01/amazonglobal/images/email/asins/DURM-27610E402269D1MB._CB534580861_.jpg"
-                         alt="">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4>Best Product
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href=""
-                                   class="badge badge-primary">100ks</a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href=""
-                                   class="badge badge-warning">Shirt</a>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </a>
-
-        </div>
-        <div class="col-md-4">
-            <a href="">
-                <div class="card">
-                    <img class="card-img-top"
-                         src="https://images-na.ssl-images-amazon.com/images/G/01/amazonglobal/images/email/asins/DURM-275EC7C73DE80FES._V534580834_.jpg"
-                         alt="">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4>Best Product
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href=""
-                                   class="badge badge-primary">100ks</a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href=""
-                                   class="badge badge-warning">Shirt</a>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </a>
-
-        </div>
-        <div class="col-md-4">
-            <a href="">
-                <div class="card">
-                    <img class="card-img-top"
-                         src="https://images-na.ssl-images-amazon.com/images/G/01/amazonglobal/images/email/asins/DURM-275EE15F72DDA21L._V534580838_.jpg"
-                         alt="">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4>Best Product
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href=""
-                                   class="badge badge-primary">100ks</a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href=""
-                                   class="badge badge-warning">Shirt</a>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </a>
-
-        </div>
+        @endforeach
 
     </div>
     <div class="row">
@@ -189,15 +47,16 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     <li class="page-item">
-                        <a
-                            class="page-link"
+                        <a class="page-link"
                             href="#">
-                            <<Previous>
+                            Previous
                         </a>
                     </li>
-                    <li class="page-item"><a
+                    <li class="page-item">
+                        <a
                             class="page-link"
-                            href="#">1</a></li>
+                            href="#">1</a>
+                    </li>
                     <li class="page-item"><a
                             class="page-link"
                             href="#">2</a></li>
