@@ -1,6 +1,8 @@
 @extends('user.layout.master')
 @section('content')
-    <h2>Your Cart List</h2>
+    <h2 class="text-center">Your Cart List</h2>
+    <hr>
+    @if(sizeof($cart) > 0)
     <table class="table table-striped">
         <thead>
         <tr>
@@ -38,4 +40,9 @@
         <hr>
         </tbody>
     </table>
+    <a href="{{url('/make/order')}}" class="btn btn-primary btn-block">Order Now</a>
+    @else
+        <p class="text-center font-weight-bold">There is no item in your cart.</p>
+    @endif
+
 @endsection

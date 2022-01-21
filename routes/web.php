@@ -17,6 +17,13 @@ Route::group(['middleware'=>'ShareData'],function (){
     ##cart
     Route::get('/product/cart/add/{slug}','PageController@addToCart');
     Route::get('/cart','PageController@showCart');
+    ##make order
+    Route::get('/make/order','PageController@makeOrder');
+    ##order list
+    Route::get('/order/list','PageController@orderList');
+    ##profile
+    Route::get('/profile','PageController@showProfile')->name('profile.show');
+    Route::post('/profile','PageController@updateProfile');
 });
 
 

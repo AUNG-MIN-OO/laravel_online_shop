@@ -11,6 +11,11 @@
           href="https://demos.creative-tim.com/argon-dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="https://demos.creative-tim.com/argon-dashboard/assets/css/argon.min.css?v=1.2.0">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <style>
+        .table td{
+            vertical-align: middle;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,7 +23,7 @@
 @include('sweetalert::alert')
 <div class="container-fluid" id="header">
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand text-white" href="#">MM-Shop</a>
+        <a class="navbar-brand text-white" href="{{url('/')}}">MM-Shop</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -28,10 +33,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home </a>
+                    <a class="nav-link" href="{{url('/')}}">Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Your Order</a>
+                    <a class="nav-link" href="{{url('/order/list')}}">Your Order</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -101,12 +106,16 @@
                                 Your Cart
                             </li>
                         </a>
-                        <li class="list-group-item bg-dark text-white">
-                            Your Order List
-                        </li>
-                        <li class="list-group-item bg-danger text-white">
-                            Your Profile Info
-                        </li>
+                        <a href="{{url('/order/list')}}">
+                            <li class="list-group-item bg-dark text-white">
+                                Your Order List
+                            </li>
+                        </a>
+                        <a href="{{url('/profile')}}">
+                            <li class="list-group-item bg-danger text-white">
+                                Your Profile Info
+                            </li>
+                        </a>
                     </ul>
                 </div>
             </div>
@@ -119,10 +128,12 @@
 
                         </li>
                         @foreach($categories as $c)
-                        <li class="list-group-item">
-                            {{$c->name}}
-                            <span class="badge badge-primary float-right">{{$c->product_count}}</span>
-                        </li>
+                            <a href="{{url('/?category='.$c->slug)}}">
+                                <li class="list-group-item">
+                                    {{$c->name}}
+                                    <span class="badge badge-primary float-right">{{$c->product_count}}</span>
+                                </li>
+                            </a>
                         @endforeach
                     </ul>
                 </div>
