@@ -127,6 +127,7 @@
                             All Category
 
                         </li>
+{{--                        project done--}}
                         @foreach($categories as $c)
                             <a href="{{url('/?category='.$c->slug)}}">
                                 <li class="list-group-item">
