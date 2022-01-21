@@ -22,6 +22,9 @@ class PageController extends Controller
             $slug = $request->category;
             $category_id = Category::where('slug',$slug)->first()->id;
             $products = Product::where('category_id',$category_id)->with('category')->orderBy('id','DESC')->paginate(6);
+        }else if($request->searchKey) {
+            $searchKey = $request->searchKey;
+            $products = Product::where('name','like',"%{$searchKey}%")->with('category')->orderBy('id','DESC')->paginate(6);
         }else{
             $products = Product::latest()->with('category')->paginate(6);
         }

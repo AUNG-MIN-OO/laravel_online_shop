@@ -62,9 +62,9 @@
                     </a>
                 </li>
             </ul>
-            <form class="form-inline">
+            <form class="form-inline" action="{{url('/')}}" method="get">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search"
-                       aria-label="Search">
+                       aria-label="Search" name="searchKey">
                 <button class="btn btn-primary" type="submit">Search</button>
             </form>
         </div>

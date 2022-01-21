@@ -2,6 +2,7 @@
 @section('content')
     <div class="row">
         <!-- Loop Product -->
+        @if(sizeof($products) > 0)
         @foreach($products as $p)
         <div class="col-md-4">
             <a href="{{url('/product/'.$p->slug)}}">
@@ -40,34 +41,14 @@
 
         </div>
         @endforeach
+        @else
+            <p class="mb-0 text-center font-weight-bold text-danger">There is no match result</p>
+        @endif
 
     </div>
     <div class="row">
         <div class="col-md-6 offset-3">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link"
-                            href="#">
-                            <
-                        </a>
-                    </li>
-                    <li class="page-item">
-                        <a
-                            class="page-link"
-                            href="#">1</a>
-                    </li>
-                    <li class="page-item"><a
-                            class="page-link"
-                            href="#">2</a></li>
-                    <li class="page-item"><a
-                            class="page-link"
-                            href="#">3</a></li>
-                    <li class="page-item"><a
-                            class="page-link"
-                            href="#">></a></li>
-                </ul>
-            </nav>
+            {{ $products->appends(\Illuminate\Support\Facades\Request::all())->onEachSide(2)->links() }}
         </div>
     </div>
 @endsection
